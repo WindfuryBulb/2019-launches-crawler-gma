@@ -45,7 +45,7 @@ def judge_successful_row(row_item):
             return True
     return False
 
-def get_launches_by_date():
+def get_launches_groupby_date():
     table = get_table()
     res_dict = dict()
     if table != None:
@@ -68,7 +68,6 @@ def get_launches_by_date():
                             flag = True
                             if judge_successful_row(item):
                                 successes += 1
-                            # print(launch_rows, string)
                 else:
                     if judge_successful_row(item):
                         successes += 1
@@ -97,5 +96,5 @@ def purse_output(res_dict):
             date = date + datetime.timedelta(days=1)
 
 if __name__ == "__main__":
-    res = get_launches_by_date()
+    res = get_launches_groupby_date()
     purse_output(res)
